@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Archlinux</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1 id="toc_1">Archlinux</h1>
+
+<p>
+Mes notes sur l'installation d'Archlinux
+</p>
+ 
+
+<h2 id="toc_1.1">Installation from scratch</h2>
+<ul>
+<li>
+Attention de ne lancer pas lancer l'utilitaire de partitionement sur une partition mais bien sur le disque lui même
+
+<li>
+Pour le macbook voir <a href="https://wiki.archlinux.org/index.php/MacBook">https://wiki.archlinux.org/index.php/MacBook</a>
+
+</ul>
+<h3 id="toc_1.1.1">Notes à propos de VMware et Virtualbox</h3>
+<ul>
+<li>
+pb sur le driver video suite à l'upgrade -&gt; obligé de réinstaller les anciens pilotes
+   ex : <code>pacman -U /var/cache/pacman/pkg/xf86-video-intel-2.99.912-1-x86_64.pkg.tar.xz</code>
+
+</ul>
+<h2 id="toc_1.2">Customisation</h2>
+<h3 id="toc_1.2.1">Les paquets indispensable</h3>
+<ul>
+<li>
+dmenu-xft-height (pour paramétrer la couleuur/hauteur)
+
+<li>
+dunst pour avoir des notifications
+
+<li>
+dwb comme navigateur web
+
+<li>
+feh pour gérer l'image du fond
+
+<li>
+hot-solarized-vi pour un top colorisée avec raccourcis vi
+
+<li>
+slim pour avoir un écran de login
+
+<li>
+llpp-git pour visualiser des pdf
+
+<li>
+otf-inconsolata-powerline-git (police avec support powerline)
+
+<li>
+otf-powerline-symbols-git (police avec support powerline)
+
+<li>
+pinta logiciel de retouche image
+
+<li>
+pommed-light pour gérer les touches mac sons/lumieres
+
+<li>
+xclip &amp; xqel pour gérer les copier/collé
+
+</ul>
+<h3 id="toc_1.2.2">I3 window manager</h3>
+<ul>
+<li>
+i3pystatus-git pour des infos dans la barre de menu
+
+</ul>
+<h3 id="toc_1.2.3">Police de caractère</h3>
+<h3 id="toc_1.2.4">Thème Solarized, airline et GTK</h3>
+<h3 id="toc_1.2.5">Barre de status</h3>
+<ul>
+<li>
+<a href="configuration de i3pystatus-git.html">configuration de i3pystatus-git</a>  
+
+</ul>
+<h3 id="toc_1.2.6">Barre de lancement</h3>
+<ul>
+<li>
+installation de dmenu-xft-height puis customisation dans ~/.config/i3/config :
+   <code>bindsym $mod+d exec dmenu_run -i -nb '#859900' -nf '#eee8d5' -sb '#cb4b16' -fn 'Meslo LG S DZ for Powerline-10' -h 24</code>
+
+</ul>
+<h3 id="toc_1.2.7">Ajout de règle udev</h3>
+<p>
+ Lancer un script à la connexion/deconnexion d'un périphérique :
+</p>
+<ul>
+<li>
+voir <a href="https://wiki.archlinux.org/index.php/udev">https://wiki.archlinux.org/index.php/udev</a>
+
+<li>
+créer un script se terminannt par .rules
+
+<li>
+copier un script déjà existant : /usr/lib/udev/rules.d/70-power-switch.rules
+
+<li>
+voir les infos du device <code># udevadm info -a -p /sys/class/backlight/acpi_video0</code>
+
+<li>
+modfier la régle copier avec les info récupérée
+
+<li>
+faire <code>udevadm trigger</code> si la règle n'est pas prise en compte
+
+<li>
+si la règle ne fonctionne pas faire un <code># udevadm test $(udevadm info -q path -n [device name]) 2&gt;&amp;1</code>
+
+</ul>
+<h3 id="toc_1.2.8">Installation Trackpad</h3>
+<ul>
+<li>
+voir <a href="https://wiki.archlinux.org/index.php/bluetooth">https://wiki.archlinux.org/index.php/bluetooth</a>
+
+<li>
+et voir <a href="http://support.apple.com/kb/HT2845">http://support.apple.com/kb/HT2845</a>
+   Turn on the Magic Trackpad by pressing the on/off button until the indicator light comes on. The indicator light glows steadily for 2 to 3 seconds to indicate the batteries are good. After that, the light will blink to indicate your trackpad is in discovery mode.
+
+<li>
+ajouter une <a href="conf X11 trackpad.html">conf X11 trackpad</a>
+
+</ul>
+
+</body>
+</html>

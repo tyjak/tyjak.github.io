@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>conf X11 trackpad</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h2 id="toc_0.1">fichier /etc/X11/xorg.conf.d/10-magicktrackpad.conf</h2>
+
+<pre>
+Section "InputClass"
+ Identifier "Magic Trackpad"
+ MatchUSBID "05ac:030e"
+ Driver "evdev"
+ MatchIsTouchpad "on"
+ MatchDevicePath "dev/input/event/*"
+EndSection
+</pre>
+
+</body>
+</html>

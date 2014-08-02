@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>Session</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h2 id="toc_0.1">Sessions</h2>
+<ul>
+<li>
+:mksession PATH/TO/SESSION/mysession "enregistre la session
+
+<li>
+:source PATH/TO/SESSION/mysession "ouvre la session
+
+<li>
+definir un repertoire de session et 2 commandes pour enregistrer et ouvrir
+    command! -nargs=1 Mks mksession ~/sessions/&lt;args&gt;
+    command! -nargs=1 Ops source ~/sessions/&lt;args&gt;
+
+</ul>
+
+</body>
+</html>
