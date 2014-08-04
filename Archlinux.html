@@ -131,6 +131,24 @@ et voir <a href="http://support.apple.com/kb/HT2845">http://support.apple.com/kb
 ajouter une <a href="conf X11 trackpad.html">conf X11 trackpad</a>
 
 </ul>
+<h3 id="toc_1.2.9">Connexion Freebox OpenVPN</h3>
+<ul>
+<li>
+copier le fichier utilisateur de la freebox  <code>cp ~/downloads/config_openvpn_bridge_{$USER}.ovpn /etc/openvpn/freebox.conf</code>
+
+<li>
+créer les fichiers reseaux pour <a href="openvpnclient.html">openvpnclient</a> pour l'interface virtuel dans <code>/etc/netctl</code> voir <a href="https://wiki.archlinux.org/index.php/OpenVPN_Bridge">https://wiki.archlinux.org/index.php/OpenVPN_Bridge</a>
+
+<li>
+monter l'interface <code>netctl enable openvpn_tap</code>et <code>netctl enable openvpn_bridge</code>
+
+<li>
+démarrer le service <code>systemctl start openvpn@freebox.service</code>
+
+<li>
+puis <code>dhcpd</code> pour obtenir une ip
+
+</ul>
 
 </body>
 </html>
