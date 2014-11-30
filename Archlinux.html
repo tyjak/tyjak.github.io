@@ -1,12 +1,29 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<link rel="Stylesheet" type="text/css" href="style.css">
-<title>Archlinux</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Archlinux</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="content">
+        
 <h1 id="toc_1">Archlinux</h1>
 
 <p>
@@ -137,18 +154,37 @@ ajouter une <a href="conf X11 trackpad.html">conf X11 trackpad</a>
 copier le fichier utilisateur de la freebox  <code>cp ~/downloads/config_openvpn_bridge_{$USER}.ovpn /etc/openvpn/freebox.conf</code>
 
 <li>
-créer les fichiers reseaux pour <a href="openvpnclient.html">openvpnclient</a> pour l'interface virtuel dans <code>/etc/netctl</code> voir <a href="https://wiki.archlinux.org/index.php/OpenVPN_Bridge">https://wiki.archlinux.org/index.php/OpenVPN_Bridge</a>
+créer le fichier reseau pour <a href="openvpnclient.html">openvpnclient</a> pour l'interface virtuel dans <code>/etc/netctl</code> voir <a href="https://wiki.archlinux.org/index.php/OpenVPN_Bridge">https://wiki.archlinux.org/index.php/OpenVPN_Bridge</a> (mais ne pas installé le fichier bridge que tap)
 
 <li>
-monter l'interface <code>netctl enable openvpn_tap</code>et <code>netctl enable openvpn_bridge</code>
+démarrer l'interface <code>netctl enable openvpn_tap</code>
 
 <li>
 démarrer le service <code>systemctl start openvpn@freebox.service</code>
 
 <li>
-puis <code>dhcpd</code> pour obtenir une ip
+puis <code>dhcpd tap0</code> pour obtenir une ip
+
+<li>
+si pb pour obtenir l'adresse ip, redémarrer faire un <code>systemctl restart dhcpcd</code>
 
 </ul>
 
-</body>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
 </html>

@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Python</title>
+        <title>Postfix</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,21 +24,44 @@
 
         <div class="content">
         
-<h1 id="toc_1">Python notes</h1>
-<h2 id="toc_1.1" class="justcenter">installation d'un module modifié</h2>
-<p>
-	dans le répertoire faire:
-	<code>python setup.py install</code>
-</p>
-
+<h2 id="toc_0.1">Trucs et astuces pour postfix</h2>
 <ul>
 <li>
-le module sera installé dans /usr/lib/python3.4/site-packages/
-
-<li>
-un executable sera mis/remplacé dans /usr/bin/ (un executbale n'est qu'un fichier pyhton qui indique ou trouver le module à exécuter)
+restrection de reception pour un domaine (à tester)
 
 </ul>
+
+<p>
+The instructions for doing this type of thing are documented here.
+<a href="http://www.postfix.org/RESTRICTION_CLASS_README.html">http://www.postfix.org/RESTRICTION_CLASS_README.html</a>
+</p>
+
+<p>
+try something like this
+</p>
+
+<p>
+/etc/postfix/main.cf:
+</p>
+<blockquote>
+smtpd_recipient_restrictions =
+check_client_access hash:/etc/postfix/inside_ips
+...the usual stuff...
+</blockquote>
+<blockquote>
+smtpd_restriction_classes = insiders_only
+insiders_only = check_sender_access hash:/etc/postfix/insiders, reject
+</blockquote>
+<blockquote>
+/etc/postfix/inside_ips:
+192.168.1   insiders_only
+192.168.2   insiders_only
+</blockquote>
+<blockquote>
+/etc/postfix/insiders:
+my.domain       OK  matches my.domain and subdomains
+another.domain  OK  matches another.domain and subdomains
+</blockquote>
 
         </div>
 

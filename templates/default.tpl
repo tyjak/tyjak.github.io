@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Python</title>
+        <title>%title%</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,23 +23,7 @@
         <![endif]-->
 
         <div class="content">
-        
-<h1 id="toc_1">Python notes</h1>
-<h2 id="toc_1.1" class="justcenter">installation d'un module modifié</h2>
-<p>
-	dans le répertoire faire:
-	<code>python setup.py install</code>
-</p>
-
-<ul>
-<li>
-le module sera installé dans /usr/lib/python3.4/site-packages/
-
-<li>
-un executable sera mis/remplacé dans /usr/bin/ (un executbale n'est qu'un fichier pyhton qui indique ou trouver le module à exécuter)
-
-</ul>
-
+        %content%
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
