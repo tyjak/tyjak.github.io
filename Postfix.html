@@ -62,12 +62,10 @@
 
     <div class="container content">
 		
-<h2 id="toc_0.1">Trucs et astuces pour postfix</h2>
-<ul>
-<li>
-restrection de reception pour un domaine (à tester)
+<h1 id="toc_1">Postfix</h1>
+<h2 id="toc_1.1">Trucs et astuces pour postfix</h2>
 
-</ul>
+<h4 id="toc_1.1.0.1">restriction de reception pour un domaine (à tester)</h4>
 
 <p>
 The instructions for doing this type of thing are documented here.
@@ -75,33 +73,36 @@ The instructions for doing this type of thing are documented here.
 </p>
 
 <p>
-try something like this
+try something like this in 
 </p>
 
 <p>
-`
-/etc/postfix/main.cf:
+	<code>/etc/postfix/main.cf</code> :
 </p>
-<blockquote>
-smtpd_recipient_restrictions =
-check_client_access hash:/etc/postfix/inside_ips
-...the usual stuff...
-</blockquote>
-<blockquote>
-smtpd_restriction_classes = insiders_only
-insiders_only = check_sender_access hash:/etc/postfix/insiders, reject
-</blockquote>
-<blockquote>
-/etc/postfix/inside_ips:
-192.168.1   insiders_only
-192.168.2   insiders_only
-</blockquote>
-<blockquote>
-/etc/postfix/insiders:
-my.domain       OK  matches my.domain and subdomains
-another.domain  OK  matches another.domain and subdomains
-`
-</blockquote>
+<pre class="brush: sh">
+    smtpd_recipient_restrictions =
+        check_client_access hash:/etc/postfix/inside_ips
+        ...the usual stuff...
+
+        smtpd_restriction_classes = insiders_only
+        insiders_only = check_sender_access hash:/etc/postfix/insiders, reject
+</pre>
+
+<p>
+	<code>/etc/postfix/inside_ips</code> : 
+</p>
+<pre class="brush: sh">
+            192.168.1   insiders_only
+            192.168.2   insiders_only
+</pre>
+  
+<p>
+	<code>/etc/postfix/insiders</code> :
+</p>
+<pre class="brush: sh">
+        my.domain       OK  matches my.domain and subdomains
+        another.domain  OK  matches another.domain and subdomains
+</pre>
 
 	</div>
 	<!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
