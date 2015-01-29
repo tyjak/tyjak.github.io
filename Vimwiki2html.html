@@ -42,7 +42,7 @@ let g:vimwiki_list = [mainWiki]
 	$ grunt serve
 </pre> <h3 id=toc_1.2.6>Release</h3> <p> In the directory of the project launch: </p> <pre>
 	$ grunt build
-</pre> <h3 id=toc_1.2.7>TODO</h3> <p> Add git commit, push into the build process </p> </div> <!-- /container --> <script src=scripts/db02b173.vendor.js></script> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --> <script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+</pre> <h3 id=toc_1.2.7>Process the whole thing</h3> <p> Within vim : </p> <ul> <li> <code>Gw</code> to save and stage your wikifile </li><li> <code>Gcommit</code> to commit change </li><li> <code>:WikiToHTML</code> to have the html file </li></ul> <p> Within local www folder : </p> <ul> <li> <code>grunt build</code> </li><li> <code>git -a -m 'message' file.html</code> </li></ul> <p> It's done' ! </p> <h3 id=toc_1.2.8>TODO</h3> <p> Automate all the stuff above ! </p> </div> <!-- /container --> <script src=scripts/db02b173.vendor.js></script> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --> <script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
       e.src='//www.google-analytics.com/analytics.js';
